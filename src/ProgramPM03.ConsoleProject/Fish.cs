@@ -9,7 +9,8 @@ namespace ProgramPM03.ConsoleProject
         private string kind;
         private string manufacturer;
         private string price;
-
+        public Fish() {}
+        public Fish(string kind, string manufacturer, string price) {}
         public string Kind {
             set
             {
