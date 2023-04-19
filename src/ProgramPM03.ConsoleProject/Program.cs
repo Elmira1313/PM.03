@@ -9,6 +9,11 @@ namespace ProgramPM03.ConsoleProject
             int n;
             Console.Write("Количество видов рыб: ");
             n = Convert.ToInt32(Console.ReadLine());
+            while (n <= 0)
+            {
+                Console.Write("Введите корректное количество: ");
+                n = Convert.ToInt32(Console.ReadLine());
+            }
 
             FishControl fishControl = new FishControl(n);
 
