@@ -24,7 +24,7 @@ namespace ProgramPM03.ConsoleProject
             fishControl.sortFishControl();
             fishControl.getFishControl();
 
-            fishControl.writingFishControl(".\\Text.txt");
+            fishControl.writingFishControl("..\\..\\..\\..\\Text.txt");
         }
     }
 }
