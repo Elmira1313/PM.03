@@ -50,7 +50,46 @@ namespace ProgramPM03.ConsoleProject
 
             }
         }
-        
+        public void sortFishControl()
+        {
+            try
+            {
+                for (int i = 0; i < fishControl.Length; i++)
+                {
+                    for (int j = 0; j < fishControl.Length - 1; j++)
+                    {
+                        if (needToReOrder(fishControl[j].Kind, fishControl[j + 1].Kind))
+                        {
+                            Fish buffer = fishControl[j];
+                            fishControl[j] = fishControl[j + 1];
+                            fishControl[j + 1] = buffer;
+                        }
+                        
+                        if (fishControl[j].Kind == fishControl[j + 1].Kind && Convert.ToInt32(fishControl[j].Price) > Convert.ToInt32(fishControl[j + 1].Price))
+                        {
+                            Fish buffer = fishControl[j];
+                            fishControl[j] = fishControl[j + 1];
+                            fishControl[j + 1] = buffer;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Ошибка сортировки");
+            }
+        }
+
+        protected static bool needToReOrder(string s1, string s2)
+        {
+            for (int i = 0; i < (s1.Length > s2.Length ? s2.Length : s1.Length); i++)
+            {
+                if (s1.ToCharArray()[i] < s2.ToCharArray()[i]) return false;
+                if (s1.ToCharArray()[i] > s2.ToCharArray()[i]) return true;
+            }
+            return false;
+        }
+
         public void getFishControl()
         {
             for (int i = 0; i < fishControl.Length; i++)
