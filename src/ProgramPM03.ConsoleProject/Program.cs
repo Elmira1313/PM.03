@@ -18,6 +18,8 @@ namespace ProgramPM03.ConsoleProject
             Console.Write("Sort: ");
             fishControl.sortFishControl();
             fishControl.getFishControl();
+
+            fishControl.writingFishControl(".\\Text.txt");
         }
     }
 }

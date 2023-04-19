@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
 
 namespace ProgramPM03.ConsoleProject
 {
@@ -90,6 +91,28 @@ namespace ProgramPM03.ConsoleProject
             return false;
         }
 
+        public void writingFishControl(string nameFile)
+        {
+            StreamWriter file = new StreamWriter(nameFile);
+            file.WriteLine(getStringFishControl());
+            file.Close();
+        }
+
+        public string getStringFishControl()
+        {
+            StringBuilder str = new StringBuilder("\t\t~СПИСОК РЫБ~\n");
+            for (int i = 0; i < fishControl.Length; i++)
+            {
+
+                if (fishControl.Length != 0)
+                {
+                    str.Append($"\nВид: {fishControl[i].Kind}");
+                    str.Append($"\nПроизводитель: {fishControl[i].Manufacturer}");
+                    str.Append($"\nЦена: {fishControl[i].Price}\n");
+                }
+            }
+            return str.ToString();
+        }
         public void getFishControl()
         {
 
