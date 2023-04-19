@@ -22,12 +22,12 @@ namespace ProgramPM03.ConsoleProject
             {
                 if(fishControl.Length != 0)
                 {
-                    Console.WriteLine($"Введите характеристики для {i+1} рыбы:\n");
-                    Console.Write("Вид: ");
+                    Console.WriteLine($"\nВведите характеристики для {i+1} рыбы:");
+                    Console.Write("\tВид: ");
                     fishControl[i].Kind = Console.ReadLine();
-                    Console.Write("Производитель: ");
+                    Console.Write("\tПроизводитель: ");
                     fishControl[i].Manufacturer = Console.ReadLine();
-                    Console.Write("Цена: ");
+                    Console.Write("\tЦена: ");
                     fishControl[i].Price = Console.ReadLine();
                 }
             }
@@ -37,12 +37,12 @@ namespace ProgramPM03.ConsoleProject
         {
             try
             {
-                Console.WriteLine($"Введите характеристики для {index + 1} рыбы:\n");
-                Console.Write("Вид: ");
+                Console.WriteLine($"\nВведите характеристики для {index + 1} рыбы:");
+                Console.Write("\tВид: ");
                 fishControl[index].Kind = Console.ReadLine();
-                Console.Write("Производитель: ");
+                Console.Write("\tПроизводитель: ");
                 fishControl[index].Manufacturer = Console.ReadLine();
-                Console.Write("Цена: ");
+                Console.Write("\tЦена: ");
                 fishControl[index].Price = Console.ReadLine();
             }
             catch
@@ -65,7 +65,7 @@ namespace ProgramPM03.ConsoleProject
                             fishControl[j + 1] = buffer;
                         }
                         
-                        if (fishControl[j].Kind == fishControl[j + 1].Kind && Convert.ToInt32(fishControl[j].Price) > Convert.ToInt32(fishControl[j + 1].Price))
+                        if (fishControl[j].Kind == fishControl[j + 1].Kind && Convert.ToInt32(fishControl[j].Price) < Convert.ToInt32(fishControl[j + 1].Price))
                         {
                             Fish buffer = fishControl[j];
                             fishControl[j] = fishControl[j + 1];
@@ -84,23 +84,24 @@ namespace ProgramPM03.ConsoleProject
         {
             for (int i = 0; i < (s1.Length > s2.Length ? s2.Length : s1.Length); i++)
             {
-                if (s1.ToCharArray()[i] < s2.ToCharArray()[i]) return false;
-                if (s1.ToCharArray()[i] > s2.ToCharArray()[i]) return true;
+                if (s1.ToCharArray()[i] > s2.ToCharArray()[i]) return false;
+                if (s1.ToCharArray()[i] < s2.ToCharArray()[i]) return true;
             }
             return false;
         }
 
         public void getFishControl()
         {
+
+            Console.WriteLine($"\n\t\t~СПИСОК РЫБ~\n");
             for (int i = 0; i < fishControl.Length; i++)
             {
-                Console.WriteLine($"\tСписок рыб:\n");
 
                 if (fishControl.Length != 0)
                 {
                     Console.WriteLine($"Вид: {fishControl[i].Kind}");
                     Console.WriteLine($"Производитель: {fishControl[i].Manufacturer}");
-                    Console.WriteLine($"Цена: {fishControl[i].Price}");
+                    Console.WriteLine($"Цена: {fishControl[i].Price}\n");
                 }
             }
         }
